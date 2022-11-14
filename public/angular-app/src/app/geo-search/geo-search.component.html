@@ -1,0 +1,26 @@
+<form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+
+    <div>
+        <label>
+            Latitude: <input formControlName="latitude" placeholder="Latitude"/>
+        </label>
+    </div>
+    <div>
+        <label>
+            Longitude: <input formControlName="longitude" placeholder="Longitude"/>
+        </label>
+    </div>
+    <div>
+        <label>
+            Distance: <input formControlName="distance" placeholder="Distance"/>
+        </label>
+    </div>
+    <button type="submit">Submit</button>
+</form>
+
+<ul>
+    <li *ngFor="let ship of ships">
+        <a routerLink="/ships/{{ship._id}}">{{ship.depth}} - {{ship.coordinates}}</a>
+    </li>
+</ul>
+

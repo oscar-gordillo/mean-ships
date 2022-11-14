@@ -1,0 +1,24 @@
+<!-- <form [formGroup]="paginationForm" (ngSubmit)="onSubmit()"> -->
+Number of ships to display each page
+<!-- <input type="text" formControlName="count"/> -->
+<select (change)="changeCount($event)">
+    <option value="5">5</option>
+    <option value="10">10</option>
+    <option value="50">50</option>
+</select>
+
+<br/>
+Types: <select (change)="changeType($event)">
+    <option value="ALL">ALL</option>
+    <option *ngFor="let type of types" value="{{type}}">{{type}}</option>
+       </select>
+The list of Ships are:<br/>
+
+<ul>
+    <li *ngFor="let ship of ships">
+        <a routerLink="{{ship._id}}">{{ship.depth}} - {{ship.coordinates}}</a>
+    </li>
+</ul>
+<button (click)="previous()" [disabled]='disabledPrev'>Previous</button>
+<button (click)="next()" [disabled]='disabledNext'>Next</button>
+
